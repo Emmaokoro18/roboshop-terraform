@@ -6,3 +6,6 @@ variable "name" {
   default = "Emmanuel"
 }
 
+output "name" {
+  value = var.name
+}
