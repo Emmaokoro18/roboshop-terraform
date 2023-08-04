@@ -8,6 +8,14 @@ resource "aws_instance" "Frontend" {
   }
 }
 
+resource "aws_route53_record" "frontend" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "frontend.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Frontend.private_ip]
+}
+
 resource "aws_instance" "Mongodb" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -16,6 +24,14 @@ resource "aws_instance" "Mongodb" {
   tags = {
     Name = "Mongodb"
   }
+}
+
+resource "aws_route53_record" "mongodb" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "mongodb.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Mongodb.private_ip]
 }
 
 resource "aws_instance" "Catalogue" {
@@ -28,6 +44,14 @@ resource "aws_instance" "Catalogue" {
   }
 }
 
+resource "aws_route53_record" "catalogue" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "catalogue.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Catalogue.private_ip]
+}
+
 resource "aws_instance" "Redis" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -36,6 +60,14 @@ resource "aws_instance" "Redis" {
   tags = {
     Name = "Redis"
   }
+}
+
+resource "aws_route53_record" "redis" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "redis.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Redis.private_ip]
 }
 
 resource "aws_instance" "User" {
@@ -48,6 +80,14 @@ resource "aws_instance" "User" {
   }
 }
 
+resource "aws_route53_record" "user" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "user.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.User.private_ip]
+}
+
 resource "aws_instance" "Cart" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -56,6 +96,14 @@ resource "aws_instance" "Cart" {
   tags = {
     Name = "Cart"
   }
+}
+
+resource "aws_route53_record" "cart" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "cart.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Cart.private_ip]
 }
 
 resource "aws_instance" "Mysql" {
@@ -68,6 +116,14 @@ resource "aws_instance" "Mysql" {
   }
 }
 
+resource "aws_route53_record" "mysql" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "mysql.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Mysql.private_ip]
+}
+
 resource "aws_instance" "Shipping" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -76,6 +132,14 @@ resource "aws_instance" "Shipping" {
   tags = {
     Name = "Shipping"
   }
+}
+
+resource "aws_route53_record" "shipping" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "shipping.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Shipping.private_ip]
 }
 
 resource "aws_instance" "RabbitMQ" {
@@ -88,6 +152,14 @@ resource "aws_instance" "RabbitMQ" {
   }
 }
 
+resource "aws_route53_record" "rabbitmq" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "rabbitmq.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.RabbitMQ.private_ip]
+}
+
 resource "aws_instance" "Payment" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -98,6 +170,14 @@ resource "aws_instance" "Payment" {
   }
 }
 
+resource "aws_route53_record" "payment" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "payment.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Payment.private_ip]
+}
+
 resource "aws_instance" "Dispatch" {
   ami           = "ami-03265a0778a880afb"
   instance_type = "t2.micro"
@@ -106,4 +186,12 @@ resource "aws_instance" "Dispatch" {
   tags = {
     Name = "Dispatch"
   }
+}
+
+resource "aws_route53_record" "dispatch" {
+  zone_id = "Z10273961PNDZQUR159DY"
+  name    = "dispatch.bigetech.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.Dispatch.private_ip]
 }
