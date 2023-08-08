@@ -11,6 +11,6 @@ resource "aws_instance" "instance" {
     vpc_security_group_ids = [ "sg-09a378097912daee2" ]
 
     tags = {
-      Name = ""
+      Name = element(var.components, count.index)
     }
 }
